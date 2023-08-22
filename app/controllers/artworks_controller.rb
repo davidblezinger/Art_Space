@@ -7,4 +7,12 @@ class ArtworksController < ApplicationController
     # CHANGED THE "()" INSIDE PARAMS :ID
     @artwork = Artwork.find(params[:id])
   end
+
+  def new
+
+  end
+
+  def create
+
+  end
 end
