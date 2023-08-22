@@ -6,4 +6,12 @@ class ArtworksController < ApplicationController
   def show
     @artwork = Artwork.find[params[:id]]
   end
+
+  def new
+
+  end
+
+  def create
+
+  end
 end
