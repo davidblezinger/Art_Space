@@ -1,0 +1,23 @@
+
+<div class="container mt-5">
+  <div class="text-center text-white">
+    <h1>Art Space</h1>
+  </div>
+
+    <div>
+    <% @artworks.each do |artwork| %>
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="<%= @artwork.image_url %>" alt="<%= @artwork.title %>">
+        <div class="card-body">
+          <h2 class="card-title"><%= @artwork.title %></h2>
+            <p>Artist: <%= @artwork.first_name + @artwork.last_name %></p>
+            <p><%= @artwork.description %></p>
+            <p>Price: <%= @artwork.price %></p>
+          <%= link_to "Edit", edit_artwork_path(artwork) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <%= link_to "Add new Artwork", new_artwork_path %>
+</div>
