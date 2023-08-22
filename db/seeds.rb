@@ -36,5 +36,5 @@ artworks = [
 ]
 
 artworks.each do |artwork|
-  User.create(artwork)
+  Artwork.create(artwork)
 end
