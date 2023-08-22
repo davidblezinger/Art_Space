@@ -8,12 +8,11 @@
     <div>
     <% @artworks.each do |artwork| %>
       <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="<%= @artwork.image_url %>" alt="<%= @artwork.title %>">
+        <img class="card-img-top" src="<%= artwork.image_url %>" alt="<%= artwork.title %>">
         <div class="card-body">
-          <h2 class="card-title"><%= @artwork.title %></h2>
-            <p>Artist: <%= @artwork.first_name + @artwork.last_name %></p>
-            <p><%= @artwork.description %></p>
-            <p>Price: <%= @artwork.price %></p>
+          <h2 class="card-title"><%= artwork.title %></h2>
+            <p><%= artwork.description %></p>
+            <p>Price: <%= artwork.price %></p>
           <%= link_to "Edit", edit_artwork_path(artwork) %>
         </div>
       </div>
