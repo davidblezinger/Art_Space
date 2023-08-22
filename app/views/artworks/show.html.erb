@@ -5,7 +5,7 @@
 
     <p>
       <strong>Image:</strong>
-      <%= image_tag @artwork.image_url, alt: @artwork.description, width: "300" %>
+      <%= cl_image_tag @artwork.photo.key, alt: @artwork.description, width: "300" %>
     </p>
 
     <p>
