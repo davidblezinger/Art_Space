@@ -1,5 +1,13 @@
-<%= cl_image_tag("q7jmjv9qs7guoscu9guu",
-      width: 400, height: 300, crop: :fill) %>
 
-<%= cl_image_tag("xg4ujbzbb7cx5j47fe0v",
-      width: 150, height: 150, crop: :thumb, gravity: :face) %>
+<div class="container">
+  <div>
+    <%= simple_form_for @artwork do |f| %>
+      <%= f.input :photo, as: :file, input_html: { multiple: false } %>
+      <%= f.input :title %>
+      <%= f.input :description %>
+      <%= f.input :category %>
+      <%= f.input :price %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>
