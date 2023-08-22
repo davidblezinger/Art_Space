@@ -1,0 +1,13 @@
+// Card css for the show page
+.artwork-show-container {
+  background: url(asset-path('background.jpg')) no-repeat center center fixed;
+  background-size: cover; /* To ensure the image covers the entire viewport */
+  height: 100vh; /* Full height */
+  color: black; /* Adjust text color so it's readable on the background */
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+// End
