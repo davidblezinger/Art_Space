@@ -1,0 +1,31 @@
+
+<div class="container">
+  <div class="artwork-show-container">
+    <h1>Artwork Details</h1>
+
+    <p>
+      <strong>Image:</strong>
+      <%= image_tag @artwork.image_url, alt: @artwork.description, width: "300" %>
+    </p>
+
+    <p>
+    <strong>Title:</strong>
+    <%# <%= @artwork.title %>
+    </p>
+    <p>
+      <strong>Description:</strong>
+      <%= @artwork.description %>
+    </p>
+
+    <p>
+      <strong>Category:</strong>
+      <%= @artwork.category %>
+    </p>
+
+    <p>
+      <strong>Price:</strong>
+      $<%= @artwork.price %>
+    </p>
+    <%= link_to 'Back', artworks_path, class: 'btn btn-primary' %>
+  </div>
+</div>
