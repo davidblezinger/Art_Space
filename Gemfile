@@ -80,3 +80,5 @@ end
 gem "devise"
 
 gem "cloudinary"
+
+gem "geocoder"
