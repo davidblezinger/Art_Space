@@ -1,13 +1,13 @@
 <%= render partial: "layouts/navbar" %>
 
-<div class="container mt-5">
+<div class="container">
   <div class="text-center text-white">
     <h1>Art Space</h1>
   </div>
 
-    <div>
+  <div class="row g-3">
     <% @artworks.each do |artwork| %>
-      <div class="card" style="width: 18rem;">
+      <div class="card col-lg-2 col-md-4 col-sm-6 mx-2" style="width: 18rem;">
         <img class="card-img-top" src="<%= artwork.image_url %>" alt="<%= artwork.title %>">
         <div class="card-body">
           <h2 class="card-title"><%= artwork.title %></h2>
