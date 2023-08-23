@@ -14,10 +14,10 @@ User.destroy_all
 
 # Seed Users
 users_data = [
-  { first_name: "John", last_name: "Doe", username: "johndoe" , email: "john.doe@example.com", password: "123456" },
-  { first_name: "Paul", last_name: "Doe", username: "pauldoe" , email: "paul.doe@example.com", password: "123456" },
-  { first_name: "Alex", last_name: "Doe", username: "pauldoe" , email: "alex.doe@example.com", password: "123456" },
-  { first_name: "Alina", last_name: "Doe", username: "pauldoe" , email: "alina.doe@example.com", password: "123456" },
+  { first_name: "John", last_name: "Doe", username: "johndoe" , email: "john.doe@example.com", password: "123456", address: "Munich" },
+  { first_name: "Paul", last_name: "Doe", username: "pauldoe" , email: "paul.doe@example.com", password: "123456", address: "Munich" },
+  { first_name: "Alex", last_name: "Doe", username: "pauldoe" , email: "alex.doe@example.com", password: "123456", address: "Munich" },
+  { first_name: "Alina", last_name: "Doe", username: "pauldoe" , email: "alina.doe@example.com", password: "123456", address: "Spain" },
 ]
 
 created_users = users_data.map do |user_data|
@@ -33,7 +33,7 @@ artwork.save
 file = URI.open("https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=745&q=80")
 artwork = Artwork.new(title: "flowers", description: "Description 1", category: "Painting", price: "99.99" )
 artwork.photo.attach(io: file, filename: "flowers.png", content_type: "image/png")
-artwork.user = User.first
+artwork.user = User.last
 artwork.save
 
 file = URI.open("https://images.unsplash.com/photo-1547891654-e66ed7ebb968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80")
