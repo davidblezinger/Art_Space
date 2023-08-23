@@ -7,7 +7,7 @@
 
   <div class="row g-3">
     <% @artworks.each do |artwork| %>
-      <div class="card p-2 col-lg-2 col-md-4 col-sm-6 mx-3 d-flex justify-content-center" style="width: 18rem;">
+      <div class="card hover-card-effect p-2 col-lg-2 col-md-4 col-sm-6 mx-3 d-flex justify-content-center" style="width: 18rem;">
         <%# FIXED IMAGE LINK TO WORK WITH CLOUDINARY %>
         <%= cl_image_tag artwork.photo.key, alt: artwork.description, class: "card-img-top", height: 200, crop: "scale" %>
         <div class="card-body">
@@ -15,7 +15,7 @@
             <p><%= artwork.description %></p>
             <p>Price: <%= artwork.price %></p>
             <%# FIXED THE PATH TO SHOW EACH CARD %>
-          <%= link_to "View", artwork_path(artwork) %>
+          <%= link_to "View", artwork_path(artwork), id: "view-btn-abs" %>
         </div>
       </div>
     <% end %>
