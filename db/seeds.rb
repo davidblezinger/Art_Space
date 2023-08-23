@@ -14,10 +14,10 @@ User.destroy_all
 
 # Seed Users
 users_data = [
-  { first_name: "John", last_name: "Doe", username: "johndoe" , email: "john.doe@example.com", password: "123456" },
-  { first_name: "Paul", last_name: "Doe", username: "pauldoe" , email: "paul.doe@example.com", password: "123456" },
-  { first_name: "Alex", last_name: "Doe", username: "pauldoe" , email: "alex.doe@example.com", password: "123456" },
-  { first_name: "Alina", last_name: "Doe", username: "pauldoe" , email: "alina.doe@example.com", password: "123456" },
+  { first_name: "John", last_name: "Doe", username: "johndoe" , email: "john.doe@example.com", password: "123456", address: "Munich" },
+  { first_name: "Paul", last_name: "Doe", username: "pauldoe" , email: "paul.doe@example.com", password: "123456", address: "Munich" },
+  { first_name: "Alex", last_name: "Doe", username: "pauldoe" , email: "alex.doe@example.com", password: "123456", address: "Munich" },
+  { first_name: "Alina", last_name: "Doe", username: "pauldoe" , email: "alina.doe@example.com", password: "123456", address: "Spain" },
 ]
 
 created_users = users_data.map do |user_data|
