@@ -1,0 +1,17 @@
+h1 {
+  font-family: $headers-font;
+  font-size: 80px;
+  color: black;
+  margin: 0;
+  padding: 24px;
+}
+
+h2 {
+  font-family: $headers-font;
+}
+
+p {
+  font-family: $body-font;
+  padding: 4px;
+  margin: 0px;
+}

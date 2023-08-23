@@ -1,0 +1,10 @@
+//  HOVER CARD EFFECT -
+.hover-card-effect {
+  position: relative;
+  color: black;
+  &:hover {
+    border: 1px solid;
+    transition: 1s ease;
+  }
+}
+// END

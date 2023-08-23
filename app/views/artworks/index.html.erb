@@ -1,3 +1,4 @@
+<%= render partial: "layouts/navbar" %>
 
 <div class="container">
   <div class="text-center text-white">
@@ -6,13 +7,15 @@
 
   <div class="row g-3">
     <% @artworks.each do |artwork| %>
-      <div class="card col-lg-2 col-md-4 col-sm-6 mx-2" style="width: 18rem;">
-        <img class="card-img-top" src="<%= artwork.image_url %>" alt="<%= artwork.title %>">
+      <div class="card hover-card-effect p-2 col-lg-2 col-md-4 col-sm-6 mx-3 d-flex justify-content-center" style="width: 18rem;">
+        <%# FIXED IMAGE LINK TO WORK WITH CLOUDINARY %>
+        <%= cl_image_tag artwork.photo.key, alt: artwork.description, class: "card-img-top", height: 200, crop: "scale" %>
         <div class="card-body">
           <h2 class="card-title"><%= artwork.title %></h2>
             <p><%= artwork.description %></p>
             <p>Price: <%= artwork.price %></p>
-          <%= link_to "Edit", edit_artwork_path(artwork) %>
+            <%# FIXED THE PATH TO SHOW EACH CARD %>
+          <%= link_to "View", artwork_path(artwork), id: "view-btn-abs" %>
         </div>
       </div>
     <% end %>

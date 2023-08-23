@@ -1,0 +1,21 @@
+// INDEX PAGE VIEW BUTTON
+  #view-btn-abs {
+    position: absolute;
+    display: none;
+    text-decoration: none;
+  }
+
+  .hover-card-effect:hover #view-btn-abs{
+    display: inline;
+    font-family: $button-font;
+    font-weight: 300;
+    top: 194px;
+    color: white;
+    background-color: #03071e;
+    box-shadow: 0px -8px 20px 1px rgba(255,255,255,1);
+    right: 24px;
+    padding: 4px;
+    border-radius: 4px;
+    transition: 1s ease;
+    }
+// END
