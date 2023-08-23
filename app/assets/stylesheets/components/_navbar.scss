@@ -10,3 +10,63 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+// .navbar {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   background-color: transparent;
+//   padding: 20px 20px;
+//   border-bottom: 3px solid white;
+
+//   .navbar-left {
+//     display: flex;
+//     align-items: center;
+
+//     .home-link {
+//       text-decoration: underline, 2px, black;
+//       color: black;
+//       display: flex;
+//       align-items: center;
+//       font-family: "Inter", sans-serif;
+//       font-size: 16px;
+
+//       .home-text {
+//         margin-right: 5px;
+//         font-weight: bold;
+//       }
+
+//       .home-underline {
+//         width: 100%;
+//         height: 2px;
+//         background-color: black;
+//       }
+//     }
+//   }
+
+//   .navbar-right {
+//     display: flex;
+//     align-items: center;
+
+//     .login-button {
+//       text-decoration: none;
+//       color: black;
+//       display: inline-block;
+//       padding: 10px 30px;
+//       border: 2px solid black;
+//       background-color: white(0, 0, 0, 0.1);
+//       border-radius: 3px;
+//       transition: background-color 0.3s ease;
+//       font-family: "Inter", sans-serif;
+//       font-size: 16px;
+//       width: 200px;
+//       height: 45px;
+//       text-align: center;
+
+//       &:hover {
+//         background-color: black;
+//         color: white;
+//       }
+//     }
+//   }
+// }

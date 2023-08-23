@@ -1,12 +1,13 @@
 
-<div class="container">
-  <div>
+<div class="container d-flex justify-content-center mt-5">
+  <div class="form-new-art-card">
     <%= simple_form_for @artwork do |f| %>
       <%= f.input :photo, as: :file, input_html: { multiple: false } %>
       <%= f.input :title %>
       <%= f.input :description %>
       <%= f.input :category %>
       <%= f.input :price %>
+      <%= link_to 'Back', artworks_path, class: 'btn btn-primary' %>
       <%= f.button :submit %>
     <% end %>
   </div>
