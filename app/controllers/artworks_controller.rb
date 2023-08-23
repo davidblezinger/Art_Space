@@ -7,6 +7,10 @@ class ArtworksController < ApplicationController
   def show
     # CHANGED THE "()" INSIDE PARAMS :ID
     @artwork = Artwork.find(params[:id])
+    @markers = {
+        lat: @artwork.user.latitude,
+        lng: @artwork.user.longitude
+      }
   end
 
   def new
