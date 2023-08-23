@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to artwork_path(@artwork)
     else
-      render "", status: :unprocessable_entity
+      render "artworks/show", status: :unprocessable_entity
     end
   end
 

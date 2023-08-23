@@ -1,9 +1,6 @@
 <nav class="navbar">
   <div class="navbar-left">
-    <a href="#" class="home-link">
-      <span class="home-text">Home</span>
-      <span class="home-underline"></span>
-    </a>
+    <%= link_to "Home", root_path, class: "login-button" %>
   </div>
   <div class="navbar-right">
     <% if user_signed_in? %>
