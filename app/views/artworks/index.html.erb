@@ -4,7 +4,7 @@
   <div class="text-center text-white">
     <h1>Art Space</h1>
   </div>
-
+  <%= link_to "Add new Artwork", new_artwork_path, class: "link_btns", id: "create-art-btn-index" %>
   <div class="row g-3">
     <% @artworks.each do |artwork| %>
       <div class="card hover-card-effect p-2 col-lg-2 col-md-4 col-sm-6 mx-3 d-flex justify-content-center" style="width: 18rem;">
@@ -20,6 +20,6 @@
       </div>
     <% end %>
   </div>
-  <%= link_to "Add new Artwork", new_artwork_path, class: "link_btns" %>
+
 
 </div>
