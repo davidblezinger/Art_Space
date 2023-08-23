@@ -2,7 +2,6 @@
 .artwork-show-container {
   background: url(asset-path('background.jpg')) no-repeat center center fixed;
   background-size: cover; /* To ensure the image covers the entire viewport */
-  height: 100vh; /* Full height */
   color: black; /* Adjust text color so it's readable on the background */
   display: flex;
   flex-direction: column;
@@ -14,7 +13,6 @@
 // Map design
 .map-design {
   height: 100vh;
-
 }
 
 // End
