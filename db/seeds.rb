@@ -8,6 +8,7 @@ require "open-uri"
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 # for users:
+puts "seed file is running"
 
 Artwork.destroy_all
 User.destroy_all
