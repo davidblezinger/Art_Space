@@ -1,34 +1,39 @@
 
 <div class="container">
-  <div class="artwork-show-container">
-    <h1>Artwork Details</h1>
+  <div class="row">
 
-    <p>
-      <%= cl_image_tag @artwork.photo.key, alt: @artwork.description, width: "300" %>
-    </p>
+    <div class="artwork-show-container col-lg-5 col-md-6 col-sm-6">
+      <h2><%= @artwork.title %></h2>
 
-    <p>
-    <strong>Title:</strong>
-    <%# <%= @artwork.title %>
-    </p>
-    <p>
-      <strong>Description:</strong>
-      <%= @artwork.description %>
-    </p>
+      <p>
+        <%= cl_image_tag @artwork.photo.key, alt: @artwork.description, width: "300" %>
+      </p>
 
-    <p>
-      <strong>Category:</strong>
-      <%= @artwork.category %>
-    </p>
+      <p>
+        <strong>Description:</strong>
+        <%= @artwork.description %>
+      </p>
 
-    <p>
-      <strong>Price:</strong>
-      $<%= @artwork.price %>
-    </p>
-    <%= link_to 'Back', artworks_path, class: 'btn btn-primary' %>
+      <p>
+        <strong>Category:</strong>
+        <%= @artwork.category %>
+      </p>
+
+
+      <p>
+        <strong>Price:</strong>
+        $<%= @artwork.price %>
+      </p>
+      <%= link_to 'Back', artworks_path, class: 'btn btn-primary' %>
+    </div>
+
+    <div
+      class="map-design col-lg-7 col-md-6 col-sm-6"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   </div>
-</div>
-
 <%= simple_form_for [@artwork, @booking] do |f| %>
   <%= f.input :start_date %>
   <%= f.input :end_date %>

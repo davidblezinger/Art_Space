@@ -8,10 +8,18 @@ h1 {
 
 h2 {
   font-family: $headers-font;
+  font-size: 40px;
+  color: black;
+  margin: 0;
 }
 
 p {
   font-family: $body-font;
   padding: 4px;
   margin: 0px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }
