@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= @user.name %>'s Page</title>
+</head>
+<body>
+  <h1><%= @user.name %>'s Page</h1>
+  
+  <h2>Artworks Booked</h2>
+  <ul>
+    <% @booked_artworks.each do |booking| %>
+      <li>
+        <%= booking.artwork.title %>
+        <img src="<%= booking.artwork.image_url %>" alt="<%= booking.artwork.title %>">
+      </li>
+    <% end %>
+  </ul>
+  
+  <h2>Artworks Rented Out</h2>
+  <ul>
+    <% @rented_out_artworks.each do |artwork| %>
+      <li>
+        <%= artwork.title %> - Bookings:
+        <ul>
+          <% artwork.bookings.each do |booking| %>
+            <li>Booked by: <%= booking.renter.name %> - Booked At: <%= booking.booked_at %></li>
+          <% end %>
+        </ul>
+        <img src="<%= artwork.image_url %>" alt="<%= artwork.title %>">
+      </li>
+    <% end %>
+  </ul>
+</body>
+</html>
+
