@@ -2,6 +2,14 @@ class ArtworksController < ApplicationController
 
   def index
     @artworks = Artwork.all
+    users = User.all.geocoded.filter { |u| !u.artworks.empty? }
+    @markers = users.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {artworks: user.artworks, user: user})
+      }
+    end
   end
 
   def show
