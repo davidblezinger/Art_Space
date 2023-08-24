@@ -5,7 +5,6 @@
 // Show page border design
 .show-page-card-design {
   padding: 8px;
-  // box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.75);
 }
 // End
 
@@ -13,13 +12,16 @@
   box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.75);
 }
 
+// Background show page col-2 title with map
 .show-page-background {
   background-color: white;
 }
+// End
 
 // Map design
 .map-design {
   height: 250px;
+  width: 100%;
   margin-top: 24px;
 }
 // End
