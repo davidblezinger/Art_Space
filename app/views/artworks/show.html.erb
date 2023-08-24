@@ -8,7 +8,7 @@
     </div>
     <%# END OF WRAPPER %>
 
-    <%# MAP %>
+
     <div class="show-page-background d-flex flex-column justify-content-around col-6 p-3">
 
       <div class="show-page-card-design d-flex align-items-center flex-sm-column flex-grow-1">
@@ -18,15 +18,14 @@
           <%= @artwork.description %>
         </p>
         <p>
-          <strong>Category:</strong>
+          <strong><i class="fa-regular fa-file" style="color: #000000;"></i></strong>
           <%= @artwork.category %>
         </p>
         <p>
           $<%= @artwork.price %>
         </p>
 
-
-      <div class="artwork-show-container mt-5">
+      <div class="form-show-page mt-5">
         <% if @valid_timeslot == false %>
           <p>Timeslot already booked</p>
         <% end %>
@@ -37,16 +36,17 @@
         <%= f.input :end_date,
             as: :string,
             input_html: { data: { controller: "datepicker", datepicker_all_bookings_value: @all_bookings.to_json} } %>
-        <%= f.submit "Create Booking", class: "btn btn-primary" %>
+        <%= f.submit "Book", class: "link_btns" %>
         <% end %>
       </div>
+      <%# MAP %>
       <div class="map-design"
         data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
+      <%# MAP END %>
 
     </div>
-    <%# MAP END %>
   </div>
 </div>
