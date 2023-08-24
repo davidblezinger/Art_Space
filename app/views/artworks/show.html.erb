@@ -28,6 +28,9 @@
       </div>
 
       <div class="artwork-show-container mt-5">
+        <% if @valid_timeslot == false %>
+          <p>Timeslot already booked</p>
+        <% end %>
         <%= simple_form_for [@artwork, @booking] do |f| %>
         <%= f.input :start_date %>
         <%= f.input :end_date %>
