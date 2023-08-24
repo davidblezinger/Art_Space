@@ -22,5 +22,12 @@
       </div>
     <% end %>
   </div>
+  <%= link_to "Add new Artwork", new_artwork_path, class: "link_btns" %>
+
+  <div style="width: 100%; height: 600px;"
+    data-controller="index-map"
+    data-index-map-markers-value="<%= @markers.to_json %>"
+    data-index-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
   <%# CARD END %>
 </div>

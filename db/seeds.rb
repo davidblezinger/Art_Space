@@ -15,10 +15,18 @@ User.destroy_all
 
 # Seed Users
 users_data = [
-  { first_name: "John", last_name: "Doe", username: "johndoe" , email: "john.doe@example.com", password: "123456", address: "Munich" },
-  { first_name: "Paul", last_name: "Doe", username: "pauldoe" , email: "paul.doe@example.com", password: "123456", address: "Munich" },
-  { first_name: "Alex", last_name: "Doe", username: "pauldoe" , email: "alex.doe@example.com", password: "123456", address: "Munich" },
-  { first_name: "Alina", last_name: "Doe", username: "pauldoe" , email: "alina.doe@example.com", password: "123456", address: "Spain" },
+  { first_name: "John", last_name: "Doe", username: "johndoe" , email: "john.doe@example.com", password: "123456", address: "Terni" },
+  { first_name: "Paul", last_name: "Doe", username: "pauldoe" , email: "paul.doe@example.com", password: "123456", address: "Naples" },
+  { first_name: "Alex", last_name: "Doe", username: "alexdoe" , email: "alex.doe@example.com", password: "123456", address: "Pescara" },
+  { first_name: "Alina", last_name: "Doe", username: "alinadoe" , email: "alina.doe@example.com", password: "123456", address: "Rome" },
+  { first_name: "Paco", last_name: "Doe", username: "pacodoe" , email: "paco.doe@example.com", password: "123456", address: "Rimini" },
+  { first_name: "Juan", last_name: "Doe", username: "juandoe" , email: "juan.doe@example.com", password: "123456", address: "Florence" },
+  { first_name: "Pepe", last_name: "Doe", username: "pepedoe" , email: "pepe.doe@example.com", password: "123456", address: "Perugia" },
+  { first_name: "Marta", last_name: "Doe", username: "martadoe" , email: "marta.doe@example.com", password: "123456", address: "Ancona" },
+  { first_name: "Paula", last_name: "Doe", username: "pauladoe" , email: "paula.doe@example.com", password: "123456", address: "Livorno" },
+  { first_name: "Erik", last_name: "Doe", username: "erikdoe" , email: "erik.doe@example.com", password: "123456", address: "Arezzo" },
+  { first_name: "Karl", last_name: "Doe", username: "karldoe" , email: "karl.doe@example.com", password: "123456", address: "Bari" },
+  { first_name: "Steven", last_name: "Doe", username: "stevendoe" , email: "steven.doe@example.com", password: "123456", address: "Termoli" }
 ]
 
 created_users = users_data.map do |user_data|
@@ -34,35 +42,35 @@ artwork.save
 file = URI.open("https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=745&q=80")
 artwork = Artwork.new(title: "flowers", description: "Description 1", category: "Painting", price: "99.99" )
 artwork.photo.attach(io: file, filename: "flowers.png", content_type: "image/png")
-artwork.user = User.last
+artwork.user = User.find(User.first.id + 1)
 artwork.save
 
 file = URI.open("https://images.unsplash.com/photo-1547891654-e66ed7ebb968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80")
 artwork = Artwork.new(title: "face", description: "Description 1", category: "Painting", price: "99.99" )
 artwork.photo.attach(io: file, filename: "face.png", content_type: "image/png")
-artwork.user = User.first
+artwork.user = User.find(User.first.id + 2)
 artwork.save
 
 file = URI.open("https://images.unsplash.com/photo-1549277513-f1b32fe1f8f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80")
 artwork = Artwork.new(title: "black and white face", description: "Description 1", category: "Painting", price: "99.99" )
 artwork.photo.attach(io: file, filename: "black_white_face.png", content_type: "image/png")
-artwork.user = User.first
+artwork.user = User.find(User.first.id + 3)
 artwork.save
 
 file = URI.open("https://images.unsplash.com/photo-1536924940846-227afb31e2a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1166&q=80")
 artwork = Artwork.new(title: "abstract blue painting", description: "Description 1", category: "Painting", price: "99.99" )
 artwork.photo.attach(io: file, filename: "abstract_blue.png", content_type: "image/png")
-artwork.user = User.first
+artwork.user = User.find(User.first.id + 4)
 artwork.save
 
 file = URI.open("https://images.unsplash.com/photo-1553022163-f7e4c1f4ccd9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1154&q=80")
 artwork = Artwork.new(title: "abstract red painting", description: "Description 1", category: "Painting", price: "99.99" )
 artwork.photo.attach(io: file, filename: "abstract_red.png", content_type: "image/png")
-artwork.user = User.first
+artwork.user = User.find(User.first.id + 5)
 artwork.save
 
 file = URI.open("https://images.unsplash.com/photo-1547891654-e66ed7ebb968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80")
 artwork = Artwork.new(title: "face", description: "Description 1", category: "Painting", price: "99.99" )
 artwork.photo.attach(io: file, filename: "face.png", content_type: "image/png")
-artwork.user = User.first
+artwork.user = User.find(User.first.id + 6)
 artwork.save
