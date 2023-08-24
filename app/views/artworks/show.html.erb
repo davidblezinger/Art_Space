@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <%# WRAPPER DIV FOR ART CARD AND BOOKING %>
-    <div class="d-flex flex-column col-lg-7 col-md-7 col-sm-12">
+    <div class="d-flex flex-column col-lg-8 col-md-8 col-sm-12">
       <div class="artwork-show-container">
 
         <div class="d-flex">
@@ -38,7 +38,7 @@
     </div>
     <%# END OF WRAPPER %>
     <%# MAP %>
-    <div class="map-design col-lg-5 col-md-5 col-sm-12"
+    <div class="map-design col-lg-4 col-md-4 col-sm-12"
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
