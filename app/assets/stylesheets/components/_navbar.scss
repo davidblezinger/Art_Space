@@ -1,4 +1,7 @@
 .navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,6 +23,22 @@
     }
   }
 }
+
+// CREATE ART CARD BTN ON THE INDEX PAGE
+#create-art-btn-index {
+  font-size: 18px;
+  margin: 0 16px;
+  color: black;
+  border: 2px solid black;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  &:hover {
+    background-color: black;
+    color: white;
+  }
+
+}
+// END
 
 .navbar-right {
   .login-button,
