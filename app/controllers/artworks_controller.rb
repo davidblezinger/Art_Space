@@ -16,6 +16,7 @@ class ArtworksController < ApplicationController
     # CHANGED THE "()" INSIDE PARAMS :ID
     @artwork = Artwork.find(params[:id])
     @booking = Booking.new
+    @all_bookings = get_booking_timeslots(@artwork)
     @markers = {
         lat: @artwork.user.latitude,
         lng: @artwork.user.longitude
@@ -40,5 +41,18 @@ class ArtworksController < ApplicationController
 
   def artwork_params
     params.require(:artwork).permit(:photo, :title, :description, :category, :price)
+  end
+
+  def get_booking_timeslots(artwork)
+    all_bookings = []
+    artwork.bookings.each do |booking|
+      all_bookings.push(
+        {
+          from: booking.start_date,
+          to: booking.end_date
+        }
+      )
+    end
+    return all_bookings
   end
 end

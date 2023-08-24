@@ -1,18 +1,25 @@
 // Card css for the show page
-.artwork-show-container {
-  background: url(asset-path('background.jpg')) no-repeat center center fixed;
-  background-size: cover; /* To ensure the image covers the entire viewport */
-  color: black; /* Adjust text color so it's readable on the background */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+
+// End
+
+// Show page border design
+.show-page-card-design {
+  padding: 8px;
+  // box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.75);
 }
 // End
 
-// Map design
-.map-design {
-  height: 100vh;
+#show-page-img {
+  box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.75);
 }
 
+.show-page-background {
+  background-color: white;
+}
+
+// Map design
+.map-design {
+  height: 250px;
+  margin-top: 24px;
+}
 // End

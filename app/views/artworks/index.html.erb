@@ -1,10 +1,12 @@
 
 
 <div class="container">
+
   <div class="text-center text-white">
     <h1>Art Space</h1>
   </div>
 
+  <%# CARD ART %>
   <div class="row g-3">
     <% @artworks.each do |artwork| %>
       <div class="card hover-card-effect p-2 col-lg-2 col-md-4 col-sm-6 mx-3 d-flex justify-content-center" style="width: 18rem;">
@@ -27,5 +29,5 @@
     data-index-map-markers-value="<%= @markers.to_json %>"
     data-index-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-
+  <%# CARD END %>
 </div>
