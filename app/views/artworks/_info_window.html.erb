@@ -1,0 +1,4 @@
+<% artworks.each do |artwork| %>
+  <h5><%=link_to artwork.title, artwork_path(artwork)%></h5>
+  <p><%= user.first_name %></p>
+<% end %>
