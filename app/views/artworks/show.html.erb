@@ -1,18 +1,17 @@
 
 <div class="container">
-  <div class="row">
+  <div class="row d-flex align-items-center justify-content-sm-center">
+
     <%# WRAPPER DIV FOR ART CARD AND BOOKING %>
-    <div class="d-flex flex-column col-lg-8 col-md-8 col-sm-12">
-      <div class="artwork-show-container">
+    <div class="show-page-card-design d-flex justify-content-sm-around
+    mt-5 mb-3 col-lg-8 col-md-8 col-sm-8">
+      <%= link_to '<', artworks_path, class: 'back-btn-special-show-page' %>
+      <div class="show-page-img">
+        <%= cl_image_tag @artwork.photo.key, alt: @artwork.description, width: "300" %>
+      </div>
 
-        <div class="d-flex">
-          <%= link_to '<', artworks_path, class: 'back-btn-special-show-page' %>
-        </div>
-
-        <h2><%= @artwork.title %></h2>
-        <p>
-          <%= cl_image_tag @artwork.photo.key, alt: @artwork.description, width: "300" %>
-        </p>
+      <div class="d-flex align-items-center flex-sm-column">
+        <h2 class="mb-3"><%= @artwork.title %></h2>
         <p>
           <strong>Description:</strong>
           <%= @artwork.description %>
@@ -25,24 +24,25 @@
           <strong>Price:</strong>
           $<%= @artwork.price %>
         </p>
-      </div>
 
-      <div class="artwork-show-container mt-5">
         <%= simple_form_for [@artwork, @booking] do |f| %>
         <%= f.input :start_date %>
         <%= f.input :end_date %>
         <%= f.submit "Create Booking", class: "btn btn-primary" %>
         <% end %>
       </div>
-
     </div>
     <%# END OF WRAPPER %>
-    <%# MAP %>
-    <div class="map-design col-lg-4 col-md-4 col-sm-12"
+
+  </div>
+
+  <%# MAP %>
+  <div class="row d-flex justify-content-lg-center justify-content-lg-center justify-content-lg-center">
+    <div class="map-design d-flex col-lg-8 col-md-8 col-sm-8"
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
-    <%# MAP END %>
   </div>
+  <%# MAP END %>
 </div>

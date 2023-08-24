@@ -1,15 +1,25 @@
 // Card css for the show page
-.artwork-show-container {
-  color: black;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+
+// End
+
+// Show page border design
+.show-page-card-design {
+  box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.75);
+  padding: 8px;
 }
 // End
 
+.show-page-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 16px;
+}
+
 // Map design
 .map-design {
-  height: 90vh;
+  height: 200px;
+  box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.75);
+  padding: 8px 0;
 }
 // End
