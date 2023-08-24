@@ -2,42 +2,47 @@
 <div class="container">
   <div class="row">
     <%# WRAPPER DIV FOR ART CARD AND BOOKING %>
-    <div class="d-flex justify-content-around flex-column col-lg-5 col-md-6 col-sm-6">
+    <div class="d-flex flex-column col-lg-7 col-md-7 col-sm-12">
       <div class="artwork-show-container">
-        <h2><%= @artwork.title %></h2>
 
+        <div class="d-flex">
+          <%= link_to '<', artworks_path, class: 'back-btn-special-show-page' %>
+        </div>
+
+        <h2><%= @artwork.title %></h2>
         <p>
           <%= cl_image_tag @artwork.photo.key, alt: @artwork.description, width: "300" %>
         </p>
-
         <p>
           <strong>Description:</strong>
           <%= @artwork.description %>
         </p>
-
         <p>
           <strong>Category:</strong>
           <%= @artwork.category %>
         </p>
-
         <p>
           <strong>Price:</strong>
           $<%= @artwork.price %>
         </p>
-        <%= link_to 'Back', artworks_path, class: 'btn btn-primary' %>
       </div>
-    <div class="artwork-show-container">
-      <%= simple_form_for [@artwork, @booking] do |f| %>
-      <%= f.input :start_date %>
-      <%= f.input :end_date %>
-      <%= f.submit "Create Booking", class: "btn btn-primary" %>
-      <% end %>
+
+      <div class="artwork-show-container mt-5">
+        <%= simple_form_for [@artwork, @booking] do |f| %>
+        <%= f.input :start_date %>
+        <%= f.input :end_date %>
+        <%= f.submit "Create Booking", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+
     </div>
-  </div>
-  <%# END OF WRAPPER %>
-  <div class="map-design col-lg-7 col-md-6 col-sm-6"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    <%# END OF WRAPPER %>
+    <%# MAP %>
+    <div class="map-design col-lg-5 col-md-5 col-sm-12"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+    <%# MAP END %>
   </div>
 </div>
