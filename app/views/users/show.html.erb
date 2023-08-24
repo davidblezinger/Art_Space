@@ -1,35 +1,82 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= @user.name %>'s Page</title>
+  <title><%= @user.first_name %>'s Page</title>
+  <!-- Add your CSS stylesheets here -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #f5f5f5;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .artwork-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-gap: 1rem;
+      list-style: none;
+      padding: 0;
+    }
+
+    .artwork-card {
+      border: 1px solid #ccc;
+      padding: 1rem;
+      text-align: center;
+      background-color: #fff;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .artwork-card img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
 </head>
 <body>
-  <h1><%= @user.name %>'s Page</h1>
+  <header>
+    <h1><%= @user.first_name %>'s Page</h1>
+  </header>
+
+  <div class="container">
+    <h2>Artworks Booked</h2>
+    <ul class="artwork-list">
+      <% @bookings.each do |booking| %>
+        <li class="artwork-card">
+          <%= booking.artwork.title %>
+          <%= cl_image_tag booking.artwork.photo.key, alt: booking.artwork.description %>
+        </li>
+      <% end %>
+    </ul>
   
-  <h2>Artworks Booked</h2>
-  <ul>
-    <% @booked_artworks.each do |booking| %>
-      <li>
-        <%= booking.artwork.title %>
-        <img src="<%= booking.artwork.image_url %>" alt="<%= booking.artwork.title %>">
-      </li>
-    <% end %>
-  </ul>
-  
-  <h2>Artworks Rented Out</h2>
-  <ul>
-    <% @rented_out_artworks.each do |artwork| %>
-      <li>
-        <%= artwork.title %> - Bookings:
-        <ul>
-          <% artwork.bookings.each do |booking| %>
-            <li>Booked by: <%= booking.renter.name %> - Booked At: <%= booking.booked_at %></li>
-          <% end %>
-        </ul>
-        <img src="<%= artwork.image_url %>" alt="<%= artwork.title %>">
-      </li>
-    <% end %>
-  </ul>
+    <h2>Artworks Rented Out</h2>
+    <ul class="artwork-list">
+      <% @rented_out_artworks.each do |artwork| %>
+        <li class="artwork-card">
+          <%= artwork.title %>
+          <ul>
+            <% artwork.bookings.each do |booking| %>
+              <li> Booked by: <%= booking.user.first_name %> - Booked At: <%= booking.start_date %></li>
+            <% end %>
+          </ul>
+          <%= cl_image_tag artwork.photo.key, alt: artwork.description %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </body>
 </html>
+
 
