@@ -1,19 +1,20 @@
 
 <div class="container">
-  <div class="row d-flex align-items-center justify-content-sm-center">
-
+  <div class="row d-flex align-items-center justify-content-sm-center my-4">
     <%# WRAPPER DIV FOR ART CARD AND BOOKING %>
-    <div class="show-page-card-design d-flex justify-content-sm-around
-    mt-5 mb-3 col-lg-8 col-md-8 col-sm-8">
+    <div class="d-flex justify-content-center col-6">
       <%= link_to '<', artworks_path, class: 'back-btn-special-show-page' %>
-      <div class="show-page-img">
-        <%= cl_image_tag @artwork.photo.key, alt: @artwork.description, width: "300" %>
-      </div>
+      <%= cl_image_tag @artwork.photo.key, alt: @artwork.description, width: "80%", id: "show-page-img" %>
+    </div>
+    <%# END OF WRAPPER %>
 
-      <div class="d-flex align-items-center flex-sm-column">
+    <%# MAP %>
+    <div class="show-page-background d-flex flex-column justify-content-around col-6 p-3">
+
+      <div class="show-page-card-design d-flex align-items-center flex-sm-column flex-grow-1">
         <h2 class="mb-3"><%= @artwork.title %></h2>
         <p>
-          <strong>Description:</strong>
+          <strong><i class="fa-regular fa-file-lines" style="color: #000000;"></i></strong>
           <%= @artwork.description %>
         </p>
         <p>
@@ -21,28 +22,22 @@
           <%= @artwork.category %>
         </p>
         <p>
-          <strong>Price:</strong>
           $<%= @artwork.price %>
         </p>
 
         <%= simple_form_for [@artwork, @booking] do |f| %>
         <%= f.input :start_date %>
         <%= f.input :end_date %>
-        <%= f.submit "Create Booking", class: "btn btn-primary" %>
+        <%= f.submit "Create Booking", class: "btn btn-primary w-100" %>
         <% end %>
       </div>
-    </div>
-    <%# END OF WRAPPER %>
+      <div class="map-design"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
 
-  </div>
-
-  <%# MAP %>
-  <div class="row d-flex justify-content-lg-center justify-content-lg-center justify-content-lg-center">
-    <div class="map-design d-flex col-lg-8 col-md-8 col-sm-8"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
+    <%# MAP END %>
   </div>
-  <%# MAP END %>
 </div>

@@ -4,22 +4,22 @@
 
 // Show page border design
 .show-page-card-design {
-  box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.75);
   padding: 8px;
+  // box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.75);
 }
 // End
 
-.show-page-img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 16px;
+#show-page-img {
+  box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.75);
+}
+
+.show-page-background {
+  background-color: white;
 }
 
 // Map design
 .map-design {
-  height: 200px;
-  box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.75);
-  padding: 8px 0;
+  height: 250px;
+  margin-top: 24px;
 }
 // End
