@@ -21,6 +21,7 @@ class ArtworksController < ApplicationController
         lat: @artwork.user.latitude,
         lng: @artwork.user.longitude
       }
+      p @markers
   end
 
   def new
