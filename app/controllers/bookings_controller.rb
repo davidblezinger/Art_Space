@@ -10,6 +10,7 @@ class BookingsController < ApplicationController
     @booking.artwork = @artwork
     @booking.user = current_user
     @rental_price = calculate_price(@artwork, @booking)
+    @booking.booking_price = @rental_price
     if @booking.save
       redirect_to artwork_path(@artwork)
     else
@@ -25,6 +26,6 @@ class BookingsController < ApplicationController
 
   def calculate_price(artwork, booking)
     days = booking.end_date - booking.start_date
-    artwork.price / 30 * days
+    (artwork.price / 30 * days).round(2)
   end
 end

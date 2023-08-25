@@ -25,8 +25,9 @@
           $<%= @artwork.price %>
         </p>
 
-    <div class="artwork-show-container mt-5" data-controller="price" data-price-price-value="<% @artwork.price %>">
+    <div class="artwork-show-container mt-5" data-controller="price" data-price-price-value="<%= @artwork.price %>">
       <div class="form-show-page mt-5">
+      <div data-price-target="displayPrice"></div>
         <%= simple_form_for [@artwork, @booking] do |f| %>
         <%= f.input :start_date,
             as: :string,
