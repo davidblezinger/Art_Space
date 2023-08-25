@@ -31,7 +31,7 @@
             <div class="card-body d-flex flex-column justify-content-center">
               <h2 class="card-title"><%= booking.artwork.title %></h2>
               <p><%= booking.artwork.description %></p>
-              <p><%= booking.artwork.price %>$</p>
+              <p>$<%= booking.booking_price %></p>
               <p>
                 <%= link_to '<i class="fa-regular fa-eye" style="color: #ffffff;"></i>'.html_safe, artwork_path(booking.artwork), id: "view-btn-abs" %>
               </p>
@@ -52,7 +52,7 @@
                 <% artwork.bookings.each do |booking| %>
                   <p> Booked by : <%= booking.user.first_name %> </p>
                   <p> Booked At : <%= booking.start_date %></p>
-                  <p> Total <span id="price-underline">$<%= artwork.price %></span> </p>
+                  <p> Total <span id="price-underline">$<%= booking.booking_price %></span> </p>
                 <% end %>
               </div>
               <p>
