@@ -13,7 +13,9 @@
       <!-- User Avatar Dropdown -->
       <div class="dropdown">
         <%= link_to "+", new_artwork_path, class: "link_btns", id: "create-art-btn-index" %>
-        <%= cl_image_tag(current_user.photo.key, width: 40, height: 40, crop: :fill, gravity: :auto, class: "avatar") %>
+        <% if current_user.photo.key %>
+          <%= cl_image_tag(current_user.photo.key, width: 40, height: 40, crop: :fill, gravity: :auto, class: "avatar") %>
+        <% end %>
         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarAvatarDropdown">
 
         <% if current_user %>
