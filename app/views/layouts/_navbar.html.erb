@@ -11,7 +11,6 @@
         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarAvatarDropdown">
 
           <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
-          <%= link_to "Home", root_path, class: "dropdown-item" %>
           <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
         </div>
       </div>
