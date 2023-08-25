@@ -1,4 +1,5 @@
 require "open-uri"
+require "date"
 
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
@@ -74,6 +75,11 @@ artwork = Artwork.new(title: "face", description: "Description 1", category: "Pa
 artwork.photo.attach(io: file, filename: "face.png", content_type: "image/png")
 artwork.user = User.find(User.first.id + 6)
 artwork.save
+
+# Seed Bookings
+booking1 = Booking.create(artwork: Artwork.first, user: User.first, start_date: Date.today, end_date: Date.today + 24)
+booking2 = Booking.create(artwork: Artwork.find(Artwork.first.id + 1), user: User.find(User.first.id + 1), start_date: Date.today, end_date: Date.today + 24)
+booking3 = Booking.create(artwork: Artwork.find(Artwork.first.id + 1), user: User.find(User.first.id + 2), start_date: Date.today, end_date: Date.today + 24)
 
 file = URI.open("https://images.unsplash.com/photo-1547891654-e66ed7ebb968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80")
 artwork = Artwork.new(title: "face", description: "Description 1", category: "Painting", price: "99.99" )
