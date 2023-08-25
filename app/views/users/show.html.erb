@@ -52,7 +52,7 @@
                 <% artwork.bookings.each do |booking| %>
                   <p> Booked by : <%= booking.user.first_name %> </p>
                   <p> Booked At : <%= booking.start_date %></p>
-                  <p> Total <span id="price-underline">$<%= artwork.price %></span> </p>
+                  <p> Total <span id="price-underline">$<%= booking.booking_price %></span> </p>
                 <% end %>
               </div>
               <p>
