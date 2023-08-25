@@ -1,6 +1,10 @@
 <nav class="navbar">
+
   <div class="navbar-left">
-    <%= link_to "Home", root_path, class: "login-button" %>
+    <%= link_to '<i class="fa-solid fa-house" style="color: #000000;"></i>'.html_safe, root_path, class: "login-button" %>
+  </div>
+  <div class="navbar-text">
+    <h3 id="nav-text">Art Space</h3>
   </div>
   <div class="navbar-right">
     <% if user_signed_in? %>
@@ -12,16 +16,14 @@
         <%= cl_image_tag(current_user.photo.key, width: 40, height: 40, crop: :fill, gravity: :auto, class: "avatar") %>
         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarAvatarDropdown">
 
-          <%# WHEN WE HAVE THE ROUT TO THE USER PAGE ADD IT HERE  %>
-
-          <%# <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
-          <%= link_to "Action", "#", class: "dropdown-item" %>
-          <%= link_to "Another action", "#", class: "dropdown-item" %>
+        <% if current_user %>
+          <%= link_to "#{current_user.first_name}'s Profile", user_path(current_user), class: "dropdown-item" %>
           <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+        <% end %>
         </div>
       </div>
-    <% else %>
-      <%= link_to "Log In", new_user_session_path, class: "login-button" %>
-    <% end %>
+      <% else %>
+        <%= link_to "Log In", new_user_session_path, class: "login-button" %>
+      <% end %>
   </div>
 </nav>

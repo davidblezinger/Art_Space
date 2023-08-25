@@ -7,7 +7,5 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create]
   end
 
-  resources :users, only: [:show] do
-    patch :update_avatar, on: :member
-  end
+  resources :users, only: [:show]
 end

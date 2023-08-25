@@ -8,7 +8,7 @@
     </div>
     <%# END OF WRAPPER %>
 
-    <%# MAP %>
+
     <div class="show-page-background d-flex flex-column justify-content-around col-6 p-3">
 
       <div class="show-page-card-design d-flex align-items-center flex-sm-column flex-grow-1">
@@ -18,39 +18,40 @@
           <%= @artwork.description %>
         </p>
         <p>
-          <strong>Category:</strong>
+          <strong><i class="fa-regular fa-file" style="color: #000000;"></i></strong>
           <%= @artwork.category %>
         </p>
         <p>
           $<%= @artwork.price %>
         </p>
 
-
-      <div class="artwork-show-container mt-5">
-        <% if @valid_timeslot == false %>
-          <p>Timeslot already booked</p>
-        <% end %>
+    <div class="artwork-show-container mt-5" data-controller="price" data-price-price-value="<%= @artwork.price %>">
+      <div class="form-show-page mt-5">
+      <div data-price-target="displayPrice"></div>
         <%= simple_form_for [@artwork, @booking] do |f| %>
         <%= f.input :start_date,
             as: :string,
-            input_html: { data: { controller: "datepicker", datepicker_all_bookings_value: @all_bookings.to_json} } %>
+            input_html: { data: { controller: "datepicker",
+            datepicker_all_bookings_value: @all_bookings.to_json,
+            price_target: "start",
+            action: "change->price#setDate"} } %>
         <%= f.input :end_date,
             as: :string,
-            input_html: { data: { controller: "datepicker", datepicker_all_bookings_value: @all_bookings.to_json} } %>
-        <%= f.submit "Create Booking", class: "btn btn-primary" %>
-        <%= simple_form_for [@artwork, @booking] do |f| %>
-        <%= f.input :start_date %>
-        <%= f.input :end_date %>
-        <%= f.submit "Create Booking", class: "btn btn-primary w-100" %>
+            input_html: { data: { controller: "datepicker",
+            datepicker_all_bookings_value: @all_bookings.to_json,
+            price_target: "end",
+            action: "change->price#setDate"} } %>
+        <%= f.submit "Book", class: "link_btns" %>
         <% end %>
       </div>
+      <%# MAP %>
       <div class="map-design"
         data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
+      <%# MAP END %>
 
     </div>
-    <%# MAP END %>
   </div>
 </div>

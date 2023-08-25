@@ -1,3 +1,4 @@
+
 h1 {
   font-family: $headers-font;
   font-size: 80px;
@@ -6,31 +7,19 @@ h1 {
   padding: 24px;
 }
 
-#main_page_title {
-  font-size: 200px;
-  color:white;
-  margin: 0 0 80px;
-  padding: 0;
-    &:hover {
-      color: black;
-      transition: color 0.3s ease;
-      cursor: pointer;
-  }
-}
-
 
 h2 {
   font-family: $headers-font;
-  font-size: 40px;
+  font-size: 24px;
   color: black;
   margin: 0;
 }
 
 p {
-  font-family: $body-font;
+  font-family: $p-font;
   padding: 4px;
   margin: 0px;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: lighter;
 }
 

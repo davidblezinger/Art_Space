@@ -17,6 +17,7 @@ export default class extends Controller {
     this.#fitMapToMarkers()
   }
   #addMarkersToMap() {
+    console.log("Test");
     console.log(this.markersValue)
       new mapboxgl.Marker()
         .setLngLat([ this.markersValue.lng, this.markersValue.lat ])
