@@ -5,6 +5,7 @@
   <div class="text-center text-white">
     <h1>Art Space</h1>
   </div>
+    <div class="d-flex">
 
   <%# CARD ART %>
   <div class="row g-3 mb-5">
@@ -18,9 +19,24 @@
             <p>Price: <%= artwork.price %></p>
             <%# FIXED THE PATH TO SHOW EACH CARD %>
           <%= link_to "View", artwork_path(artwork), id: "view-btn-abs" %>
+    <div class="index-grid">
+      <% @artworks.each do |artwork| %>
+        <div class="card hover-card-effect" style="width: 18rem;">
+          <%= cl_image_tag artwork.photo.key, alt: artwork.description, class: "card-img-top", height: 200, crop: "scale" %>
+          <div class="card-body">
+            <h2 class="card-title"><%= artwork.title %></h2>
+              <p><%= artwork.description %></p>
+              <p><%= artwork.price %>$</p>
+            <%= link_to "View", artwork_path(artwork), id: "view-btn-abs" %>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
+
+    <div class="index-map-design"
+      data-controller="index-map"
+      data-index-map-markers-value="<%= @markers.to_json %>"
+      data-index-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   </div>
-  <%# CARD END %>
 </div>

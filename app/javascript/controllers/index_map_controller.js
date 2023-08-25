@@ -4,7 +4,7 @@ import mapboxgl from 'mapbox-gl' // Don't forget this!
 export default class extends Controller {
   static values = {
     apiKey: String,
-    markers: Object
+    markers: Array
   }
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
@@ -17,15 +17,17 @@ export default class extends Controller {
     this.#fitMapToMarkers()
   }
   #addMarkersToMap() {
-    console.log("Test");
-    console.log(this.markersValue)
+    this.markersValue.forEach((marker) => {
+      const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
       new mapboxgl.Marker()
-        .setLngLat([ this.markersValue.lng, this.markersValue.lat ])
+        .setLngLat([ marker.lng, marker.lat ])
+        .setPopup(popup)
         .addTo(this.map)
+    })
   }
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
-    this.markersValue = bounds.extend([ this.markersValue.lng, this.markersValue.lat ])
+    this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 6.5, duration: 0 })
   }
 }
