@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   resources :artworks do
     resources :bookings, only: [:create]
   end
+
+  resources :users, only: [:show]
 end

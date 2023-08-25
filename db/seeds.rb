@@ -1,4 +1,5 @@
 require "open-uri"
+require "date"
 
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
@@ -15,18 +16,18 @@ User.destroy_all
 
 # Seed Users
 users_data = [
-  { first_name: "John", last_name: "Doe", username: "johndoe" , email: "john.doe@example.com", password: "123456", address: "Terni" },
-  { first_name: "Paul", last_name: "Doe", username: "pauldoe" , email: "paul.doe@example.com", password: "123456", address: "Naples" },
-  { first_name: "Alex", last_name: "Doe", username: "alexdoe" , email: "alex.doe@example.com", password: "123456", address: "Pescara" },
-  { first_name: "Alina", last_name: "Doe", username: "alinadoe" , email: "alina.doe@example.com", password: "123456", address: "Rome" },
-  { first_name: "Paco", last_name: "Doe", username: "pacodoe" , email: "paco.doe@example.com", password: "123456", address: "Rimini" },
-  { first_name: "Juan", last_name: "Doe", username: "juandoe" , email: "juan.doe@example.com", password: "123456", address: "Florence" },
-  { first_name: "Pepe", last_name: "Doe", username: "pepedoe" , email: "pepe.doe@example.com", password: "123456", address: "Perugia" },
-  { first_name: "Marta", last_name: "Doe", username: "martadoe" , email: "marta.doe@example.com", password: "123456", address: "Ancona" },
-  { first_name: "Paula", last_name: "Doe", username: "pauladoe" , email: "paula.doe@example.com", password: "123456", address: "Livorno" },
-  { first_name: "Erik", last_name: "Doe", username: "erikdoe" , email: "erik.doe@example.com", password: "123456", address: "Arezzo" },
-  { first_name: "Karl", last_name: "Doe", username: "karldoe" , email: "karl.doe@example.com", password: "123456", address: "Bari" },
-  { first_name: "Steven", last_name: "Doe", username: "stevendoe" , email: "steven.doe@example.com", password: "123456", address: "Termoli" }
+  { first_name: "John", last_name: "Doe", username: "johndoe" , email: "john.doe@example.com", password: "123456", address: "Via Pratovecchio, 00138" },
+  { first_name: "Paul", last_name: "Doe", username: "pauldoe" , email: "paul.doe@example.com", password: "123456", address: "Via Collatina, Roma" },
+  { first_name: "Alex", last_name: "Doe", username: "alexdoe" , email: "alex.doe@example.com", password: "123456", address: "Via Del Pigneto 31, Roma" },
+  { first_name: "Alina", last_name: "Doe", username: "alinadoe" , email: "alina.doe@example.com", password: "123456", address: "Avinguda De Joan Castelló, 07816" },
+  { first_name: "Paco", last_name: "Doe", username: "pacodoe" , email: "paco.doe@example.com", password: "123456", address: "Via Di Valle Porcina, 00125" },
+  { first_name: "Juan", last_name: "Doe", username: "juandoe" , email: "juan.doe@example.com", password: "123456", address: "Via Della Falcognana, 00134" },
+  { first_name: "Pepe", last_name: "Doe", username: "pepedoe" , email: "pepe.doe@example.com", password: "123456", address: "" },
+  { first_name: "Marta", last_name: "Doe", username: "martadoe" , email: "marta.doe@example.com", password: "123456", address: "Avinguda Pere Matutes Noguera, 07800" },
+  { first_name: "Paula", last_name: "Doe", username: "pauladoe" , email: "paula.doe@example.com", password: "123456", address: "Carrer De L'estruç, 07819" },
+  { first_name: "Erik", last_name: "Doe", username: "erikdoe" , email: "erik.doe@example.com", password: "123456", address: "Carrer Fruitera, 07800" },
+  { first_name: "Karl", last_name: "Doe", username: "karldoe" , email: "karl.doe@example.com", password: "123456", address: "Carrer Des Botafoch, 07800" },
+  { first_name: "Steven", last_name: "Doe", username: "stevendoe" , email: "steven.doe@example.com", password: "123456", address: "Via Casilina Vecchia, 00182" }
 ]
 
 created_users = users_data.map do |user_data|
@@ -73,4 +74,39 @@ file = URI.open("https://images.unsplash.com/photo-1547891654-e66ed7ebb968?ixlib
 artwork = Artwork.new(title: "face", description: "Description 1", category: "Painting", price: "99.99" )
 artwork.photo.attach(io: file, filename: "face.png", content_type: "image/png")
 artwork.user = User.find(User.first.id + 6)
+artwork.save
+
+# Seed Bookings
+booking1 = Booking.create(artwork: Artwork.first, user: User.first, start_date: Date.today, end_date: Date.today + 24)
+booking2 = Booking.create(artwork: Artwork.find(Artwork.first.id + 1), user: User.find(User.first.id + 1), start_date: Date.today, end_date: Date.today + 24)
+booking3 = Booking.create(artwork: Artwork.find(Artwork.first.id + 1), user: User.find(User.first.id + 2), start_date: Date.today, end_date: Date.today + 24)
+
+file = URI.open("https://images.unsplash.com/photo-1547891654-e66ed7ebb968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80")
+artwork = Artwork.new(title: "face", description: "Description 1", category: "Painting", price: "99.99" )
+artwork.photo.attach(io: file, filename: "face.png", content_type: "image/png")
+artwork.user = User.find(User.first.id + 7)
+artwork.save
+
+file = URI.open("https://images.unsplash.com/photo-1547891654-e66ed7ebb968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80")
+artwork = Artwork.new(title: "face", description: "Description 1", category: "Painting", price: "99.99" )
+artwork.photo.attach(io: file, filename: "face.png", content_type: "image/png")
+artwork.user = User.find(User.first.id + 8)
+artwork.save
+
+file = URI.open("https://images.unsplash.com/photo-1573096108468-702f6014ef28?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3348&q=80")
+artwork = Artwork.new(title: "face", description: "Description 1", category: "Painting", price: "99.99" )
+artwork.photo.attach(io: file, filename: "face.png", content_type: "image/png")
+artwork.user = User.find(User.first.id + 9)
+artwork.save
+
+file = URI.open("https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3344&q=80")
+artwork = Artwork.new(title: "oil painting", description: "Description 1", category: "Painting", price: "99.99" )
+artwork.photo.attach(io: file, filename: "face.png", content_type: "image/png")
+artwork.user = User.find(User.first.id + 10)
+artwork.save
+
+file = URI.open("https://images.unsplash.com/photo-1578301978018-3005759f48f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3244&q=80")
+artwork = Artwork.new(title: "Birmingham", description: "Description 1", category: "Painting", price: "99.99" )
+artwork.photo.attach(io: file, filename: "face.png", content_type: "image/png")
+artwork.user = User.find(User.first.id + 11)
 artwork.save

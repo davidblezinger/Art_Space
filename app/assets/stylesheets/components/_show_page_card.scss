@@ -1,25 +1,32 @@
-// Card css for the show page
-
+// Form css for the show page
+.form-show-page > form{
+  display: flex !important;
+  flex-direction: column !important;
+}
 // End
 
 // Show page border design
 .show-page-card-design {
   padding: 8px;
-  // box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.75);
 }
 // End
 
+// Show page image left
 #show-page-img {
   box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.75);
 }
+// End
 
+// Background show page col-2 title with map
 .show-page-background {
   background-color: white;
 }
+// End
 
 // Map design
 .map-design {
   height: 250px;
+  width: 100%;
   margin-top: 24px;
 }
 // End
