@@ -45,38 +45,36 @@
     }
   </style>
 </head>
-<body>
-  <header>
-    <h1><%= @user.first_name %>'s Page</h1>
-  </header>
+  <body>
+    <header>
+      <h1><%= @user.first_name %>'s Page</h1>
+    </header>
 
-  <div class="container">
-    <h2>Artworks Booked</h2>
-    <ul class="artwork-list">
-      <% @bookings.each do |booking| %>
-        <li class="artwork-card">
-          <%= booking.artwork.title %>
-          <%= cl_image_tag booking.artwork.photo.key, alt: booking.artwork.description %>
-        </li>
-      <% end %>
-    </ul>
-  
-    <h2>Artworks Rented Out</h2>
-    <ul class="artwork-list">
-      <% @rented_out_artworks.each do |artwork| %>
-        <li class="artwork-card">
-          <%= artwork.title %>
-          <ul>
-            <% artwork.bookings.each do |booking| %>
-              <li> Booked by: <%= booking.user.first_name %> - Booked At: <%= booking.start_date %></li>
-            <% end %>
-          </ul>
-          <%= cl_image_tag artwork.photo.key, alt: artwork.description %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-</body>
+    <div class="container">
+      <h2>Artworks Booked</h2>
+      <ul class="artwork-list">
+        <% @bookings.each do |booking| %>
+          <li class="artwork-card">
+            <%= booking.artwork.title %>
+            <%= cl_image_tag booking.artwork.photo.key, alt: booking.artwork.description %>
+          </li>
+        <% end %>
+      </ul>
+
+      <h2>Artworks Rented Out</h2>
+      <ul class="artwork-list">
+        <% @rented_out_artworks.each do |artwork| %>
+          <li class="artwork-card">
+            <%= artwork.title %>
+            <ul>
+              <% artwork.bookings.each do |booking| %>
+                <li> Booked by: <%= booking.user.first_name %> - Booked At: <%= booking.start_date %></li>
+              <% end %>
+            </ul>
+            <%= cl_image_tag artwork.photo.key, alt: artwork.description %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </body>
 </html>
-
-
