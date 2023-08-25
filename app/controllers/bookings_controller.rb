@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
     @rental_price = calculate_price(@artwork, @booking)
     @booking.booking_price = @rental_price
     if @booking.save
-      redirect_to artwork_path(@artwork)
+      redirect_to user_path(current_user)
     else
       render "artworks/show", status: :unprocessable_entity
     end
