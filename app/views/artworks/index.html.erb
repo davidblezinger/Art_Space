@@ -19,7 +19,7 @@
           <%= cl_image_tag artwork.photo.key, alt: artwork.description, class: "card-img-top", height: 200, crop: "scale" %>
           <div class="card-body d-flex flex-column justify-content-center">
             <h2 class="card-title"><%= artwork.title %></h2>
-            <p><%= artwork.description %></p>
+            <p><%= truncate(artwork.description, length: 100) %></p>
             <p><%= artwork.price %>$</p>
             <p>
               <%= link_to '<i class="fa-regular fa-eye" style="color: #ffffff;"></i>'.html_safe, artwork_path(artwork), id: "view-btn-abs" %>
