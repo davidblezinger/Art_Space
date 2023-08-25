@@ -70,38 +70,38 @@ artwork.photo.attach(io: file, filename: "abstract_red.png", content_type: "imag
 artwork.user = User.find(User.first.id + 5)
 artwork.save
 
-file = URI.open("https://images.unsplash.com/photo-1547891654-e66ed7ebb968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80")
-artwork = Artwork.new(title: "face", description: "Description 1", category: "Painting", price: "99.99" )
+file = URI.open("https://unsplash.com/photos/-YiJvbfNDqk")
+artwork = Artwork.new(title: "Forest", description: "A tranquil expanse of towering trees, their canopies intertwining to form a verdant sea of leaves.", category: "Painting", price: "52.99" )
 artwork.photo.attach(io: file, filename: "face.png", content_type: "image/png")
 artwork.user = User.find(User.first.id + 6)
 artwork.save
 
 file = URI.open("https://images.unsplash.com/photo-1547891654-e66ed7ebb968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80")
-artwork = Artwork.new(title: "face", description: "Description 1", category: "Painting", price: "99.99" )
+artwork = Artwork.new(title: "Deep eyes", description: "Eyes that seem to harbor entire galaxies, vast and inscrutable, drawing you into their depths.", category: "Painting", price: "39.99" )
 artwork.photo.attach(io: file, filename: "face.png", content_type: "image/png")
 artwork.user = User.find(User.first.id + 7)
 artwork.save
 
-file = URI.open("https://images.unsplash.com/photo-1547891654-e66ed7ebb968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80")
-artwork = Artwork.new(title: "face", description: "Description 1", category: "Painting", price: "99.99" )
+file = URI.open("https://unsplash.com/photos/HslbEeUauYA")
+artwork = Artwork.new(title: "Wanderer", description: "A lone figure treads the endless horizon, feet kissed by both desert sand and mountain snow, forever in search of the next untold story.", category: "Painting", price: "100.99" )
 artwork.photo.attach(io: file, filename: "face.png", content_type: "image/png")
 artwork.user = User.find(User.first.id + 8)
 artwork.save
 
 file = URI.open("https://images.unsplash.com/photo-1573096108468-702f6014ef28?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3348&q=80")
-artwork = Artwork.new(title: "face", description: "Description 1", category: "Painting", price: "99.99" )
+artwork = Artwork.new(title: "Color Pallet", description: "A kaleidoscope of hues, from the fiery reds of passion to the tranquil blues of serenity, painting emotions onto a canvas of reality.", category: "Art", price: "9.99" )
 artwork.photo.attach(io: file, filename: "face.png", content_type: "image/png")
 artwork.user = User.find(User.first.id + 9)
 artwork.save
 
 file = URI.open("https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3344&q=80")
-artwork = Artwork.new(title: "oil painting", description: "Description 1", category: "Painting", price: "99.99" )
+artwork = Artwork.new(title: "Oil painting", description: "A mesmerizing blend where azure meets amber, creating a dance of sun and sky, forever intertwined.", category: "Painting", price: "35.99" )
 artwork.photo.attach(io: file, filename: "face.png", content_type: "image/png")
 artwork.user = User.find(User.first.id + 10)
 artwork.save
 
 file = URI.open("https://images.unsplash.com/photo-1578301978018-3005759f48f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3244&q=80")
-artwork = Artwork.new(title: "Birmingham", description: "Description 1", category: "Painting", price: "99.99" )
+artwork = Artwork.new(title: "Mountains", description: "Majestic peaks rise to kiss the sky, their snow-capped crowns shimmering in the golden embrace of dawn.", category: "Painting", price: "11.99" )
 artwork.photo.attach(io: file, filename: "face.png", content_type: "image/png")
 artwork.user = User.find(User.first.id + 11)
 artwork.save
