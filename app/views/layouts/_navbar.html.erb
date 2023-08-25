@@ -1,6 +1,6 @@
 <nav class="navbar">
   <div class="navbar-left">
-    <%= link_to "Home", root_path, class: "login-button" %>
+    <%= link_to '<i class="fa-solid fa-house" style="color: #000000;"></i>'.html_safe, root_path, class: "login-button" %>
   </div>
   <div class="navbar-right">
     <% if user_signed_in? %>
@@ -13,8 +13,8 @@
           <%# <%= link_to "My Page", user_path(current_user) %>  %>
 
           <%# <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
-          <%= link_to "Action", "#", class: "dropdown-item" %>
-          <%= link_to "Another action", "#", class: "dropdown-item" %>
+          <%= link_to "Home", root_path, class: "dropdown-item" %>
+          <%= link_to "My profile", "#", class: "dropdown-item" %>
           <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
         </div>
       </div>
