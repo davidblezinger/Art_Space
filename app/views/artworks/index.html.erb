@@ -5,20 +5,9 @@
   <div class="text-center text-white">
     <h1>Art Space</h1>
   </div>
-    <div class="d-flex">
+  <div class="d-flex">
 
   <%# CARD ART %>
-  <div class="row g-3 mb-5">
-    <% @artworks.each do |artwork| %>
-      <div class="card hover-card-effect p-2 col-lg-2 col-md-4 col-sm-6 mx-3 d-flex justify-content-center" style="width: 18rem;">
-        <%# FIXED IMAGE LINK TO WORK WITH CLOUDINARY %>
-        <%= cl_image_tag artwork.photo.key, alt: artwork.description, class: "card-img-top", height: 200, crop: "scale" %>
-        <div class="card-body">
-          <h2 class="card-title"><%= artwork.title %></h2>
-            <p><%= artwork.description %></p>
-            <p>Price: <%= artwork.price %></p>
-            <%# FIXED THE PATH TO SHOW EACH CARD %>
-          <%= link_to "View", artwork_path(artwork), id: "view-btn-abs" %>
     <div class="index-grid">
       <% @artworks.each do |artwork| %>
         <div class="card hover-card-effect" style="width: 18rem;">
@@ -38,5 +27,6 @@
       data-index-map-markers-value="<%= @markers.to_json %>"
       data-index-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
+
   </div>
 </div>
