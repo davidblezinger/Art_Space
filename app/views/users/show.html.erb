@@ -1,80 +1,68 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title><%= @user.first_name %>'s Page</title>
-  <!-- Add your CSS stylesheets here -->
+  <head>
+    <title><%= @user.first_name %>'s Page</title>
+    <!-- Add your CSS stylesheets here -->
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
     header {
-      background-color: #f5f5f5;
-      color: #fff;
+      color: black;
       padding: 1rem;
       text-align: center;
     }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem;
-    }
-
-    .artwork-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      grid-gap: 1rem;
-      list-style: none;
-      padding: 0;
-    }
-
-    .artwork-card {
-      border: 1px solid #ccc;
-      padding: 1rem;
-      text-align: center;
-      background-color: #fff;
-      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-    }
-
-    .artwork-card img {
-      max-width: 100%;
+    .image-card {
       height: auto;
+      width: 18rem;
     }
   </style>
-</head>
+  </head>
   <body>
-    <header>
-      <h1><%= @user.first_name %>'s Page</h1>
-    </header>
-
     <div class="container">
-      <h2>Artworks Booked</h2>
-      <ul class="artwork-list">
-        <% @bookings.each do |booking| %>
-          <li class="artwork-card">
-            <%= booking.artwork.title %>
-            <%= cl_image_tag booking.artwork.photo.key, alt: booking.artwork.description %>
-          </li>
-        <% end %>
-      </ul>
+      <header class="">
+        <span id="user-name">Hi <%= @user.first_name %></span>
+      </header>
 
-      <h2>Artworks Rented Out</h2>
-      <ul class="artwork-list">
-        <% @rented_out_artworks.each do |artwork| %>
-          <li class="artwork-card">
-            <%= artwork.title %>
-            <ul>
-              <% artwork.bookings.each do |booking| %>
-                <li> Booked by: <%= booking.user.first_name %> - Booked At: <%= booking.start_date %></li>
-              <% end %>
-            </ul>
-            <%= cl_image_tag artwork.photo.key, alt: artwork.description %>
-          </li>
+      <h2 class="mb-3">Artworks Booked</h2>
+      <div class="index-grid-user-page">
+        <% @bookings.each do |booking| %>
+          <div class="card hover-card-effect" style="width: 18rem;">
+            <%= cl_image_tag booking.artwork.photo.key, alt: booking.artwork.description,
+            class: "card-img-top", height: 200, crop: "scale" %>
+            <div class="card-body d-flex flex-column justify-content-center">
+              <h2 class="card-title"><%= booking.artwork.title %></h2>
+              <p><%= booking.artwork.description %></p>
+              <p><%= booking.artwork.price %>$</p>
+              <p>
+                <%= link_to '<i class="fa-regular fa-eye" style="color: #ffffff;"></i>'.html_safe, artwork_path(booking.artwork), id: "view-btn-abs" %>
+              </p>
+            </div>
+          </div>
         <% end %>
-      </ul>
+      </div>
+
+      <h2 class="mb-3 mt-3">Artworks Rented Out</h2>
+      <div class="index-grid-user-page">
+        <% @rented_out_artworks.each do |artwork| %>
+          <div class="card hover-card-effect" style="width: 18rem;">
+            <%= cl_image_tag artwork.photo.key, alt: artwork.description,
+              class: "card-img-top", height: 200, crop: "scale" %>
+            <div class="card-body d-flex flex-column justify-content-center">
+              <h2 class="card-title"><%= artwork.title %></h2>
+              <div>
+                <% artwork.bookings.each do |booking| %>
+                  <p> Booked by : <%= booking.user.first_name %> </p>
+                  <p> Booked At : <%= booking.start_date %></p>
+                  <p> Total <span id="price-underline">$<%= artwork.price %></span> </p>
+                <% end %>
+              </div>
+              <p>
+                <%= link_to '<i class="fa-regular fa-eye" style="color: #ffffff;"></i>'.html_safe, artwork_path(artwork), id: "view-btn-abs" %>
+              </p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
     </div>
   </body>
 </html>
