@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row d-flex align-items-center justify-content-sm-center my-4">
     <%# WRAPPER DIV FOR ART CARD AND BOOKING %>
-    <div class="d-flex justify-content-center col-6">
+    <div class="d-flex col-6">
       <%= link_to '<', artworks_path, class: 'back-btn-special-show-page' %>
       <%= cl_image_tag @artwork.photo.key, alt: @artwork.description, width: "80%", id: "show-page-img" %>
     </div>
