@@ -26,22 +26,21 @@
         </p>
 
 
-      <div class="artwork-show-container mt-5">
-        <% if @valid_timeslot == false %>
-          <p>Timeslot already booked</p>
-        <% end %>
+      <div class="artwork-show-container mt-5" data-controller="price" data-price-price-value="<% @artwork.price %>">
         <%= simple_form_for [@artwork, @booking] do |f| %>
         <%= f.input :start_date,
             as: :string,
-            input_html: { data: { controller: "datepicker", datepicker_all_bookings_value: @all_bookings.to_json} } %>
+            input_html: { data: { controller: "datepicker",
+            datepicker_all_bookings_value: @all_bookings.to_json,
+            price_target: "start",
+            action: "change->price#setDate"} } %>
         <%= f.input :end_date,
             as: :string,
-            input_html: { data: { controller: "datepicker", datepicker_all_bookings_value: @all_bookings.to_json} } %>
+            input_html: { data: { controller: "datepicker",
+            datepicker_all_bookings_value: @all_bookings.to_json,
+            price_target: "end",
+            action: "change->price#setDate"} } %>
         <%= f.submit "Create Booking", class: "btn btn-primary" %>
-        <%= simple_form_for [@artwork, @booking] do |f| %>
-        <%= f.input :start_date %>
-        <%= f.input :end_date %>
-        <%= f.submit "Create Booking", class: "btn btn-primary w-100" %>
         <% end %>
       </div>
       <div class="map-design"
