@@ -13,6 +13,19 @@
   justify-content: center;
 }
 
+#main_page_title {
+  font-family: $headers-font;
+  font-size: 200px;
+  color:white;
+  margin: 0 0 80px;
+  padding: 0;
+    &:hover {
+      transition: 0.6s ease;
+      cursor: pointer;
+      font-size: 203px;
+  }
+}
+
 
 .link_btns {
   display: inline-block;

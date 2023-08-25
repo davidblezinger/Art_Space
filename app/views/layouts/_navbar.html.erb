@@ -14,12 +14,14 @@
         <%= image_tag "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80", class: "avatar dropdown-toggle", id: "navbarAvatarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarAvatarDropdown">
 
-          <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
+        <% if current_user %>
+          <%= link_to "#{current_user.first_name}'s Profile", user_path(current_user), class: "dropdown-item" %>
           <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+        <% end %>
         </div>
       </div>
-    <% else %>
-      <%= link_to "Log In", new_user_session_path, class: "login-button" %>
-    <% end %>
+      <% else %>
+        <%= link_to "Log In", new_user_session_path, class: "login-button" %>
+      <% end %>
   </div>
 </nav>
