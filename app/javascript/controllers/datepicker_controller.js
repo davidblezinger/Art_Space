@@ -8,14 +8,17 @@ export default class extends Controller {
   }
 
   connect() {
-    flatpickr(this.element, {
-      dateFormat: "Y-m-d",
-      disable: this.allBookingsValue
-  })
-
-  console.log(this.allBookingsValue)
-  console.log("Hello")
+    flatpickr(this.element,
+      {
+/*         onChange: this.handleChange.bind(this), */
+        dateFormat: "Y-m-d",
+        disable: this.allBookingsValue
+      },
+    )
   }
 
+/*   handleChange(selectedDates, dateStr, instance) {
+    console.log(selectedDates, dateStr);
 
+  } */
 }
