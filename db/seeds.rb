@@ -34,38 +34,38 @@ created_users = users_data.map do |user_data|
   User.create!(user_data)
 end
 
-file = URI.open("https://images.barrons.com/im-477538?width=700&height=564")
-artwork = Artwork.new(title: "tree", description: "Description 1", category: "Painting", price: "99.99" )
+file = URI.open("https://images.unsplash.com/photo-1577083288073-40892c0860a4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3322&q=80")
+artwork = Artwork.new(title: "Elegance of the 18th Century", description: "A mesmerizing charcoal depiction of a bustling central city in 18th century England. The artwork captures the essence of the era with its cobbled streets, horse-drawn carriages, and elegant architecture.", category: "Historical Urban Landscape", price: "18.90" )
 artwork.photo.attach(io: file, filename: "tree.png", content_type: "image/png")
 artwork.user = User.first
 artwork.save
 
-file = URI.open("https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=745&q=80")
-artwork = Artwork.new(title: "flowers", description: "Description 1", category: "Painting", price: "99.99" )
+file = URI.open("https://images.unsplash.com/photo-1576495169018-bd2414046c6b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3408&q=80")
+artwork = Artwork.new(title: "Enchanting Sea Scape", description: "An enchanting seascape portraying an idyllic marine expanse where the azure waters meet the pastel-hued horizon. Nestled within this picturesque panorama is a delicate fairy, an ethereal guardian of the ocean.", category: "Fantasy Seascape", price: "29.90" )
 artwork.photo.attach(io: file, filename: "flowers.png", content_type: "image/png")
 artwork.user = User.find(User.first.id + 1)
 artwork.save
 
-file = URI.open("https://images.unsplash.com/photo-1547891654-e66ed7ebb968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80")
-artwork = Artwork.new(title: "face", description: "Description 1", category: "Painting", price: "99.99" )
+file = URI.open("https://images.unsplash.com/photo-1614519679857-2f21e9d25ca1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3348&q=80")
+artwork = Artwork.new(title: "Effervescent Blooms in Abstraction", description: "The abstractly depicted flowers appear to be in constant motion, akin to bubbles of color surfacing in a vibrant and dynamic palette. The artist employs energetic brushstrokes and organic forms to capture the essence of nature in its most ephemeral and effervescent state.", category: "Painting", price: "22,50" )
 artwork.photo.attach(io: file, filename: "face.png", content_type: "image/png")
 artwork.user = User.find(User.first.id + 2)
 artwork.save
 
 file = URI.open("https://images.unsplash.com/photo-1549277513-f1b32fe1f8f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80")
-artwork = Artwork.new(title: "black and white face", description: "Description 1", category: "Painting", price: "99.99" )
+artwork = Artwork.new(title: "Duality Captured in Monochrome", description: "A striking black and white painting that captures the essence of duality through the portrayal of two faces. The artwork employs the stark contrast of light and shadow to emphasize the opposing yet complementary nature of the human experience. ", category: "Portrait", price: "19.99" )
 artwork.photo.attach(io: file, filename: "black_white_face.png", content_type: "image/png")
 artwork.user = User.find(User.first.id + 3)
 artwork.save
 
 file = URI.open("https://images.unsplash.com/photo-1536924940846-227afb31e2a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1166&q=80")
-artwork = Artwork.new(title: "abstract blue painting", description: "Description 1", category: "Painting", price: "99.99" )
+artwork = Artwork.new(title: "Harmony of Azure and Ember", description: "An evocative abstract painting characterized by dynamic brushstrokes in shades of blue, deep navy, and vibrant orange. The canvas is a captivating dance of colors, where the fluidity of the blue and dark blue strokes intertwine with the fiery vibrancy of the orange accents.", category: "Abstract Expressionism", price: "9.50" )
 artwork.photo.attach(io: file, filename: "abstract_blue.png", content_type: "image/png")
 artwork.user = User.find(User.first.id + 4)
 artwork.save
 
 file = URI.open("https://images.unsplash.com/photo-1553022163-f7e4c1f4ccd9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1154&q=80")
-artwork = Artwork.new(title: "abstract red painting", description: "Description 1", category: "Painting", price: "99.99" )
+artwork = Artwork.new(title: "Eternal Flames of Passion", description: "An arresting abstract oil painting composed of bold and expressive brushstrokes in vibrant shades of red and yellow. The canvas seems to come alive with the fiery energy of the strokes, igniting the viewer's imagination.", category: "Abstract Oil Painting", price: "10.30" )
 artwork.photo.attach(io: file, filename: "abstract_red.png", content_type: "image/png")
 artwork.user = User.find(User.first.id + 5)
 artwork.save
