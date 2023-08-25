@@ -70,7 +70,7 @@ artwork.photo.attach(io: file, filename: "abstract_red.png", content_type: "imag
 artwork.user = User.find(User.first.id + 5)
 artwork.save
 
-file = URI.open("https://unsplash.com/photos/-YiJvbfNDqk")
+file = URI.open("https://images.unsplash.com/photo-1508163223045-1880bc36e222?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2971&q=80")
 artwork = Artwork.new(title: "Forest", description: "A tranquil expanse of towering trees, their canopies intertwining to form a verdant sea of leaves.", category: "Painting", price: "52.99" )
 artwork.photo.attach(io: file, filename: "face.png", content_type: "image/png")
 artwork.user = User.find(User.first.id + 6)
@@ -82,7 +82,7 @@ artwork.photo.attach(io: file, filename: "face.png", content_type: "image/png")
 artwork.user = User.find(User.first.id + 7)
 artwork.save
 
-file = URI.open("https://unsplash.com/photos/HslbEeUauYA")
+file = URI.open("https://images.unsplash.com/photo-1579541592065-da8a15e49bc7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2901&q=80")
 artwork = Artwork.new(title: "Wanderer", description: "A lone figure treads the endless horizon, feet kissed by both desert sand and mountain snow, forever in search of the next untold story.", category: "Painting", price: "100.99" )
 artwork.photo.attach(io: file, filename: "face.png", content_type: "image/png")
 artwork.user = User.find(User.first.id + 8)
